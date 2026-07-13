@@ -1,14 +1,116 @@
-* {
-    color: #ececec;
-    font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+:root {
+    /* Dark Theme Variables - Modern Tech Dark */
+    --bg-app: radial-gradient(circle at 50% 50%, #171520, #0a090d);
+    --bg-sidebar: #0f0e12;
+    --bg-dropdown: rgba(22, 20, 28, 0.85);
+    --bg-user-msg: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    --text-user-msg: #ffffff;
+    --bg-input: rgba(255, 255, 255, 0.04);
+    --bg-input-focus: rgba(255, 255, 255, 0.07);
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --text-info: #6b7280;
+    --border-sidebar: rgba(255, 255, 255, 0.07);
+    --border-sign: rgba(255, 255, 255, 0.04);
+    --btn-hover: rgba(99, 102, 241, 0.1);
+    --btn-highlight: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(79, 70, 229, 0.15) 100%);
+    --scrollbar-thumb: rgba(99, 102, 241, 0.25);
+    --scrollbar-thumb-hover: rgba(99, 102, 241, 0.45);
+    --shadow-dropdown: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    --input-box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+    --glass-blur: blur(16px);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.06);
+    --navbar-bg: rgba(15, 14, 18, 0.7);
+    --accent-glow: 0 0 15px rgba(99, 102, 241, 0.25);
+    --logo-bg: #ffffff;
 }
 
-body {
+.app.light {
+    /* Light Theme Variables - Soft Lavender/Indigo with gradient accents */
+    --bg-app: linear-gradient(135deg, #f0f4ff 0%, #fafbff 40%, #f5f0ff 100%);
+    --bg-sidebar: linear-gradient(180deg, #f0f4ff 0%, #f8fafc 60%, #ede9fe 100%);
+    --bg-dropdown: rgba(255, 255, 255, 0.92);
+    --bg-user-msg: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    --text-user-msg: #ffffff;
+    --bg-input: rgba(255, 255, 255, 0.85);
+    --bg-input-focus: #ffffff;
+    --text-main: #1e1b4b;
+    --text-muted: #4b5563;
+    --text-info: #9ca3af;
+    --border-sidebar: rgba(99, 102, 241, 0.1);
+    --border-sign: rgba(99, 102, 241, 0.07);
+    --btn-hover: rgba(99, 102, 241, 0.07);
+    --btn-highlight: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(79, 70, 229, 0.1) 100%);
+    --scrollbar-thumb: rgba(99, 102, 241, 0.2);
+    --scrollbar-thumb-hover: rgba(99, 102, 241, 0.35);
+    --shadow-dropdown: 0 8px 32px 0 rgba(99, 102, 241, 0.1);
+    --input-box-shadow: 0 8px 32px 0 rgba(99, 102, 241, 0.07);
+    --glass-blur: blur(16px);
+    --glass-border: 1px solid rgba(99, 102, 241, 0.1);
+    --navbar-bg: linear-gradient(90deg, rgba(240, 244, 255, 0.85) 0%, rgba(255, 255, 255, 0.82) 50%, rgba(245, 240, 255, 0.85) 100%);
+    --accent-glow: 0 0 15px rgba(99, 102, 241, 0.18);
+    --logo-bg: #1e1b4b;
+}
+
+*{
+    color: var(--text-main);
+    font-family: 'Outfit', 'Inter', 'Open Sans', sans-serif;
+}
+
+body{
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
-.app {
-    background-color: #212121;
+.app{
+    background: var(--bg-app);
     display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
 }
+
+/* Smooth Transitions for theme switching */
+.app, 
+.sidebar, 
+.chatWindow, 
+.chats, 
+.userMessage, 
+input, 
+button, 
+.sign, 
+.dropDown, 
+.dropDownItem, 
+.history li {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ============================================================
+   RESPONSIVE — Mobile & Tablet
+   ============================================================ */
+
+/* Tablet: shrink sidebar slightly */
+@media (max-width: 1024px) {
+    .app {
+        overflow: hidden;
+    }
+}
+
+/* Mobile: off-canvas sidebar drawer */
+@media (max-width: 768px) {
+    body {
+        overflow: hidden;
+        /* prevent bounce on iOS */
+        position: fixed;
+        width: 100%;
+        height: 100%;
+    }
+
+    .app {
+        height: 100dvh; /* dynamic viewport height — handles mobile browser chrome */
+        width: 100vw;
+        overflow: hidden;
+        position: relative;
+    }
+}

@@ -1,0 +1,171 @@
+.auth-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background: var(--bg-app);
+  font-family: var(--lp-font);
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-bg-blob {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 60%);
+  filter: blur(60px);
+  z-index: 1;
+}
+
+.auth-bg-blob.top {
+  top: -100px;
+  left: -100px;
+}
+
+.auth-bg-blob.bottom {
+  bottom: -100px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(168,85,247,0.15) 0%, transparent 60%);
+}
+
+.auth-card {
+  position: relative;
+  z-index: 2;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  padding: 3rem 2.5rem;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  animation: lp-fadeUp 0.6s ease;
+}
+
+.app.light .auth-card {
+  background: rgba(255,255,255,0.75);
+  border: 1px solid rgba(99,102,241,0.15);
+  box-shadow: 0 20px 40px rgba(99,102,241,0.1);
+}
+
+.auth-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--lp-text);
+}
+
+.app.light .auth-logo {
+  color: #1e1b4b;
+}
+
+.auth-logo-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 16px;
+}
+
+.auth-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--lp-text);
+}
+
+.app.light .auth-title {
+  color: #1e1b4b;
+}
+
+.auth-subtitle {
+  font-size: 0.95rem;
+  color: var(--lp-text-muted);
+  margin-bottom: 2.5rem;
+}
+
+.app.light .auth-subtitle {
+  color: #4b5563;
+}
+
+.auth-google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  background: #ffffff;
+  color: #3c4043;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  padding: 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.auth-google-btn:hover {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
+}
+
+.auth-google-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.auth-back {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--lp-text-muted);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.auth-back:hover {
+  color: var(--lp-text);
+}
+
+.app.light .auth-back:hover {
+  color: #1e1b4b;
+}
+
+.auth-theme-toggle {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: transparent;
+  border: 1px solid var(--border-sign);
+  color: var(--text-muted);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  z-index: 10;
+}
+
+.auth-theme-toggle:hover {
+  background: var(--bg-input-focus);
+  color: var(--text-main);
+}

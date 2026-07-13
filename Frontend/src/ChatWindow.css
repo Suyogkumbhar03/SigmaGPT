@@ -1,5 +1,5 @@
-.chatWindow {
-    background-color: #212121;
+.chatWindow{
+    background: transparent;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -7,47 +7,100 @@
     justify-content: space-between;
     align-items: center;
     text-align: center;
+    overflow: hidden;
 }
 
-/* navbar */
-
-.navbar {
-    width: 100%;
+.navbar{
+    width:100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: var(--navbar-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-bottom: var(--glass-border);
+    z-index: 10;
+    padding: 5px 0;
 }
 
-.navbar span {
+.navbar span{
     margin: 1rem 2rem;
+    font-weight: 600;
+    font-size: 1.15rem;
+    letter-spacing: -0.3px;
 }
 
-.userIconDiv {
-    margin: 1rem 2rem;
+.navRight {
+    display: flex;
+    align-items: center;
+    margin-right: 2rem;
 }
 
-.userIcon {
+.themeToggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 8px;
+    margin-right: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    color: var(--text-muted);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.themeToggle:hover {
+    background-color: var(--btn-hover);
+    color: var(--text-main);
+    transform: rotate(15deg);
+}
+
+.userIconDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userIcon{
     background-color: #339cff;
-    height: 25px;
-    width: 25px;
+    height: 34px;
+    width: 34px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    color: #fff;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.userIcon:hover{
+    background-color: #2b84d9;
+    transform: scale(1.05);
+}
+
+.userIcon i{
+    color: #fff;
+    font-size: 14px;
 }
 
 /* chat input */
-.chatInput {
+.chatInput{
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction:column ;
     justify-content: center;
     align-items: center;
+    padding-bottom: 1.5rem;
+    z-index: 10;
 }
 
-.inputBox {
-    width: 100%;
+.inputBox{
+    width: 90%;
     position: relative;
     max-width: 700px;
     display: flex;
@@ -55,71 +108,259 @@
     align-items: center;
 }
 
-input {
+input{
     width: 100%;
-    border: none;
-    background-color: rgba(255, 255, 255, 0.05);
-    padding: 20px;
-    font-size: 0.8rem;
-    border-radius: 14px;
-    box-shadow: rgba(0, 0, 0, 0.05) 0 54px 55px,
-                rgba(0, 0, 0, 0.05) 0 -12px 30px,
-                rgba(0, 0, 0, 0.05) 0 4px 6px,
-                rgba(0, 0, 0, 0.05) 0 12px 3px,
-                rgba(0, 0, 0, 0.05) 0 -3px 5px;
+    border: var(--glass-border);
+    background-color: var(--bg-input);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    padding: 16px 60px 16px 24px;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    border-radius: 28px;
+    box-shadow: var(--input-box-shadow);
+    box-sizing: border-box;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-input:focus {
+input::placeholder{
+    color: var(--text-info);
+    opacity: 0.7;
+}
+
+input:focus{
     outline: none;
+    background-color: var(--bg-input-focus);
+    border-color: #6366f1;
+    box-shadow: var(--accent-glow), var(--input-box-shadow);
 }
 
-#submit {
+#submit{
     cursor: pointer;
-    height: 35px;
-    width: 35px;
-    font-size: 20px;
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    background: var(--bg-user-msg);
     position: absolute;
-    right: 15px;
+    right: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-#submit i:hover {
-    color: #fff;
+#submit:hover{
+    transform: scale(1.08);
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.5);
 }
 
-.info {
-    font-size: 0.8rem;
-    padding: 0.5rem;
-    color: #b4b4b4;
+#submit i{
+    color: #ffffff !important;
+    font-size: 13px;
+}
+
+.info{
+    font-size: 0.72rem;
+    padding: 0.6rem;
+    color: var(--text-info);
+    letter-spacing: 0.2px;
 }
 
 /* dropdown css */
 
-.dropDown {
+.dropDown{
     position: absolute;
-    top: 4rem;
-    right: 4rem;
-    width: 150px;
-
-    background-color: #323232;
-    padding: 0.3rem 0.5rem;
-    border-radius: 6px;
+    top:4.5rem;
+    right: 2rem;
+    width: 170px;
+    background-color: var(--bg-dropdown);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    padding: 0.4rem;
+    border-radius: 12px;
     text-align: left;
-    z-index: 1000;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    z-index:100;
+    box-shadow: var(--shadow-dropdown);
+    border: var(--glass-border);
+    animation: fadeIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.dropDownItem {
+.dropDownItem{
     font-size: 0.9rem;
-    margin: 0.3rem 0rem;
-    padding: 0.5rem 0.2rem;
+    margin: 0.2rem 0rem;
+    padding: 0.7rem 0.9rem;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    color: var(--text-main);
+    transition: all 0.2s ease;
 }
 
-
-.dropDownItem:hover {
-    background-color: rgba(180, 180, 180, 0.1);
-    border-radius: 6px;
+.dropDownItem i{
+    margin-right: 12px;
+    width: 16px;
+    text-align: center;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
 }
+
+.dropDownItem:hover{
+    background-color: var(--btn-hover);
+    color: #6366f1;
+}
+
+.dropDownItem:hover i{
+    color: #6366f1;
+}
+
+.loaderContainer {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── Navbar layout helper ── */
+.navLeft {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* Hamburger button — hidden on desktop */
+.hamburgerBtn {
+    display: none;
+    background: transparent;
+    border: none;
+    padding: 9px 13px;
+    margin-left: 1rem;
+    margin-right: 0;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-radius: 8px;
+    width: auto;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.hamburgerBtn:hover {
+    background: var(--btn-hover);
+    color: var(--text-main);
+    transform: none;
+    box-shadow: none;
+}
+
+/* Mobile sidebar dimmed overlay */
+.sidebarOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    z-index: 199;
+    animation: fadeIn 0.2s ease;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .inputBox {
+        max-width: 600px;
+    }
+
+    .dropDown {
+        right: 1rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .navbar {
+        justify-content: space-between;
+        padding: 4px 0;
+    }
+
+    .navbar span {
+        margin: 0.75rem 0.5rem 0.75rem 0;
+        font-size: 1rem;
+    }
+
+    .navRight {
+        margin-right: 1rem;
+    }
+
+    .hamburgerBtn {
+        display: flex;
+    }
+
+    .chatInput {
+        padding-bottom: 1rem;
+    }
+
+    .inputBox {
+        width: 95%;
+        max-width: 100%;
+    }
+
+    input {
+        padding: 14px 52px 14px 18px;
+        font-size: 0.9rem;
+        border-radius: 24px;
+    }
+
+    #submit {
+        height: 32px;
+        width: 32px;
+        right: 7px;
+    }
+
+    #submit i {
+        font-size: 12px;
+    }
+
+    .info {
+        font-size: 0.65rem;
+        padding: 0.4rem;
+    }
+
+    .dropDown {
+        right: 0.75rem;
+        top: 4rem;
+        width: 155px;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 400px) {
+    .navbar span {
+        font-size: 0.9rem;
+    }
+
+    .inputBox {
+        width: 98%;
+    }
+
+    input {
+        padding: 12px 48px 12px 15px;
+    }
+}

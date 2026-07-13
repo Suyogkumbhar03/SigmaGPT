@@ -1,34 +1,143 @@
 .chats {
-    max-width: 700px;
-    overflow-y: scroll;
-    padding: 8rem;
+    width: 100%;
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1.5rem;
+    box-sizing: border-box;
+}
+
+/* Custom scrollbar for chat window */
+.chats::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chats::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chats::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 4px;
+}
+
+.chats::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
 }
 
 .userDiv {
     display: flex;
     justify-content: flex-end;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    margin: 0.8rem 0;
+    width: 100%;
+    max-width: 700px;
+    box-sizing: border-box;
 }
-
 
 .gptDiv {
     text-align: left;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    margin: 0.8rem 0;
+    width: 100%;
+    max-width: 700px;
+    box-sizing: border-box;
 }
 
 .userMessage {
-    background-color: #323232;
-    padding: 10px 20px;
-    border-radius: 14px;
-    margin-left: 15rem;
-    max-width: 500px;
+    background: var(--bg-user-msg);
+    border: var(--glass-border);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    padding: 12px 20px;
+    border-radius: 18px;
+    max-width: 75%;
     width: fit-content;
+    color: var(--text-user-msg);
+    word-break: break-word;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.12);
+}
+
+.newChatTitle {
+    font-size: 2.4rem;
+    font-weight: 500;
+    background: linear-gradient(135deg, #6366f1 20%, #a855f7 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: auto;
+    text-align: center;
+    letter-spacing: -0.5px;
 }
 
 .hljs {
     border-radius: 14px !important;
 }
 
-pre {
+pre{
     white-space: pre-wrap;
 }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .chats {
+        padding: 1.5rem 1rem;
+    }
+
+    .userDiv,
+    .gptDiv {
+        max-width: 600px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .chats {
+        padding: 1rem 0.75rem;
+        align-items: flex-start;
+    }
+
+    .userDiv,
+    .gptDiv {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .userDiv {
+        justify-content: flex-end;
+    }
+
+    .userMessage {
+        max-width: 88%;
+        padding: 10px 16px;
+        font-size: 0.9rem;
+        border-radius: 16px;
+    }
+
+    .newChatTitle {
+        font-size: 1.75rem;
+        margin: auto;
+        padding: 0 1rem;
+    }
+
+    .gptDiv {
+        font-size: 0.9rem;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 400px) {
+    .newChatTitle {
+        font-size: 1.5rem;
+    }
+
+    .userMessage {
+        max-width: 92%;
+        font-size: 0.85rem;
+    }
+}
