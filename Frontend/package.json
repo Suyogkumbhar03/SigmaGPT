@@ -10,9 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.112.3",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.18.2",
     "react-spinners": "^0.17.0",
     "rehype-highlight": "^7.0.2",
     "uuid": "^14.0.0"
