@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
 const MessageSchema = new mongoose.Schema({
-
     role:{
         type:String,
         enum:["user","assistant"],
@@ -18,6 +17,11 @@ const MessageSchema = new mongoose.Schema({
 });
 
 const ThreadSchema = new mongoose.Schema({
+    userId:{
+        type:String,
+        default:"guest",
+        index:true
+    },
     threadId:{
         type:String,
         required:true,
@@ -36,7 +40,6 @@ const ThreadSchema = new mongoose.Schema({
         type:Date,
         default:Date.now
     }
-})
+});
 
-
-export default mongoose.model("Threat",ThreadSchema);
+export default mongoose.model("Threat", ThreadSchema);

@@ -328,6 +328,23 @@ Then copy the generated:
 
 into the Google provider configuration in Supabase.
 
+### Step 3 — Supabase URL Configuration
+
+In Supabase Dashboard, go to:
+```text
+Authentication → URL Configuration
+```
+1. Set **Site URL** to:
+   ```text
+   http://localhost:5173
+   ```
+2. In **Redirect URLs**, add:
+   ```text
+   http://localhost:5173/**
+   http://localhost:5173/chat
+   ```
+   *(For production, also add your deployed URL like `https://your-domain.vercel.app/**`)*
+
 ---
 
 # 🔑 Environment Variables
