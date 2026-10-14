@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { 
   Sparkles, 
   ArrowRight, 
   Code, 
-  MessageSquare, 
   PenTool, 
   History, 
   Sun, 
@@ -13,7 +12,6 @@ import {
   X, 
   Check, 
   Copy,
-  ChevronRight,
   Bot
 } from "lucide-react";
 import { MyContext } from "../../MyContext";

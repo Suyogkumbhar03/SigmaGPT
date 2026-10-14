@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useMemo, useCallback } from "react";
+import { useContext, useState, useEffect, useMemo, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { 
   SquarePen, 
@@ -58,6 +58,7 @@ function Sidebar({ onOpenSettings }) {
     setPrompt, 
     setReply, 
     setCurrThreadId, 
+    prevChats,
     setPrevChats, 
     sidebarOpen, 
     setSidebarOpen, 

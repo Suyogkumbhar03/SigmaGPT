@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useRef } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github-dark.css";
@@ -9,7 +9,6 @@ import {
   Bug, 
   FileText, 
   Sparkles,
-  Bot,
   User as UserIcon
 } from "lucide-react";
 import { MyContext } from "../MyContext";
@@ -122,8 +121,7 @@ function Chat({ onSelectPrompt, setIsGenerating, onRegisterStop }) {
 
   // Typing effect for the incoming assistant reply
   useEffect(() => {
-    if (reply === null) {
-      setLatestReply(null);
+    if (!reply) {
       latestReplyRef.current = "";
       return;
     }

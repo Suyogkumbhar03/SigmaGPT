@@ -1,21 +1,17 @@
-import React, { useContext, useState, useEffect, useRef, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext, useState, useEffect, useRef, useCallback } from "react";
 import { 
   ArrowUp, 
   Menu, 
   Sun, 
   Moon, 
   Settings as SettingsIcon, 
-  User as UserIcon, 
   LogOut, 
   X, 
   Check, 
   Sparkles, 
   Shield, 
-  Layers, 
   ChevronDown,
   Lock,
-  ArrowRight,
   Square
 } from "lucide-react";
 import { RingLoader } from "react-spinners";
@@ -25,14 +21,11 @@ import { supabase } from "./supabaseClient";
 import "./ChatWindow.css";
 
 function ChatWindow({ isSettingsOpen, setIsSettingsOpen }) {
-  const navigate = useNavigate();
   const {
     prompt,
     setPrompt,
-    reply,
     setReply,
     currThreadId,
-    prevChats,
     setPrevChats,
     setNewChat,
     theme,
